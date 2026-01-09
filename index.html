@@ -229,17 +229,36 @@
     </div>
 </div>
 
+<div id="modalDemo" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Agende sua Consultoria Digital</h2>
+        <p>Escolha o melhor horário para conversarmos.</p>
+        <div id="calendly-embed" style="min-width:320px;height:500px; margin-top: 20px; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center;">
+             <p style="color: #666;">[A agenda do Calendly aparecerá aqui]</p>
+        </div>
+    </div>
+</div>
+
 <script>
     function openModal() {
-        document.getElementById("modalDemo").style.display = "block";
+        console.log("Botão clicado! Abrindo modal..."); // Isso ajuda a testar
+        const modal = document.getElementById("modalDemo");
+        if(modal) {
+            modal.style.display = "block";
+        } else {
+            console.error("Erro: O elemento modalDemo não foi encontrado no HTML.");
+        }
     }
 
     function closeModal() {
+        console.log("Fechando modal...");
         document.getElementById("modalDemo").style.display = "none";
     }
 
+    // Fecha o modal se o usuário clicar fora da caixa branca
     window.onclick = function(event) {
-        let modal = document.getElementById("modalDemo");
+        const modal = document.getElementById("modalDemo");
         if (event.target == modal) {
             modal.style.display = "none";
         }
