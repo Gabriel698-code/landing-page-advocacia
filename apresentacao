@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções Digitais | Sites de Alta Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primaria: #0a192f;   /* Azul Marinho Profundo */
+            --dourado: #c5a059;    /* Dourado Elegante */
+            --texto: #2d3436;      /* Cinza escuro suave (melhor que preto) */
+            --fundo-suave: #f4f7f6; /* Off-white para descanso visual */
+            --fundo-card: #fdfdfd;  /* Branco suave para os cards */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            color: var(--texto);
+            line-height: 1.6;
+            background-color: var(--fundo-suave); /* Aplicando o fundo suave */
+        }
+
+        header {
+            background: var(--primaria);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { color: white; font-weight: bold; font-size: 1.5rem; }
+        .logo span { color: var(--dourado); }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--dourado); }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 5% 80px;
+            background: linear-gradient(rgba(10,25,47,0.85), rgba(10,25,47,0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Tamanho responsivo */
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #d1d1d1;
+        }
+
+        .cta-button {
+            background: var(--dourado);
+            color: var(--primaria);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        }
+
+        /* Seção de Serviços */
+        .services {
+            padding: 80px 5%;
+            text-align: center;
+            background: var(--fundo-suave);
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--fundo-card);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 { color: var(--primaria); margin-bottom: 15px; }
+
+        /* Rodapé */
+        .footer {
+            background-color: var(--primaria);
+            color: #ffffff;
+            padding: 60px 5% 20px;
+            border-top: 3px solid var(--dourado);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-box h4 { color: var(--dourado); margin-bottom: 20px; }
+        .footer-box p { font-size: 0.9rem; color: #ccc; }
+        .footer-box ul { list-style: none; padding: 0; }
+        .footer-box ul li { margin-bottom: 10px; }
+        .footer-box ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-box ul li a:hover { color: var(--dourado); }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        .whatsapp-icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">DEV<span>ELITE</span></div>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#automacao">Automação</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero" id="inicio">
+        <h1>Sua autoridade jurídica merece um site à altura.</h1>
+        <p>Desenvolvemos plataformas exclusivas para advogados e contadores que buscam posicionamento premium no mercado digital.</p>
+        <button class="cta-button" onclick="window.location.href='#contato'">Solicitar Demonstração</button>
+    </section>
+
+    <section class="services" id="servicos">
+        <h2>O que entregamos para seu escritório</h2>
+        <div class="grid-services">
+            <div class="card">
+                <h3>Design de Autoridade</h3>
+                <p>Layouts sóbrios e elegantes que transmitem confiança imediata ao seu cliente.</p>
+            </div>
+            <div class="card">
+                <h3>Otimização SEO</h3>
+                <p>Seja encontrado por clientes que procuram seus serviços no Google.</p>
+            </div>
+            <div class="card">
+                <h3>Segurança de Dados</h3>
+                <p>Sites blindados com certificados SSL, essencial para a LGPD e sigilo profissional.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3 style="color: white; font-family: 'Playfair Display', serif;">DEV<span style="color: var(--dourado);">ELITE</span></h3>
+            <p>Transformando a presença digital de profissionais liberais com tecnologia e elegância.</p>
+        </div>
+
+        <div class="footer-box">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#automacao">Automação</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box" id="contato">
+            <h4>Contato</h4>
+            <p>📧 contato@seusite.com.br</p>
+            <p>📞 (11) 99999-9999</p>
+            <p>📍 Atendimento em todo o Brasil</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 DevElite Soluções Digitais. | <a href="#">Política de Privacidade</a></p>
+    </div>
+</footer>
+
+<a href="https://wa.me/5511999999999?text=Olá! Vi seu site e gostaria de um orçamento." class="whatsapp-float" target="_blank">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon">
+        <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.017 7.783l-2.017 7.217 7.392-1.941c2.246 1.235 4.825 1.941 7.575 1.941 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 26c-2.429 0-4.699-0.655-6.645-1.799l-0.476-0.279-4.383 1.15 1.171-4.183-0.306-0.487c-1.236-1.966-1.961-4.29-1.961-6.784 0-7.168 5.832-13 13-13s13 5.832 13 13-5.832 13-13 13zM22.504 18.252c-0.354-0.177-2.096-1.033-2.428-1.154s-0.575-0.177-0.817 0.177-0.941 1.154-1.154 1.397-0.421 0.269-0.775 0.089c-0.354-0.177-1.496-0.551-2.85-1.761-1.054-0.94-1.766-2.101-1.972-2.455s-0.022-0.546 0.155-0.722c0.159-0.159 0.354-0.413 0.531-0.62s0.236-0.354 0.354-0.59c0.118-0.236 0.059-0.442-0.030-0.62s-0.817-1.972-1.119-2.704c-0.294-0.712-0.594-0.615-0.817-0.626s-0.457-0.012-0.702-0.012-0.643 0.092-0.979 0.457c-0.337 0.366-1.285 1.256-1.285 3.061s1.321 3.545 1.504 3.788c0.183 0.243 2.599 3.968 6.296 5.564 0.88 0.38 1.566 0.606 2.102 0.776 0.883 0.281 1.687 0.241 2.322 0.146 0.708-0.106 2.176-0.889 2.481-1.749s0.305-1.599 0.213-1.749c-0.091-0.151-0.337-0.241-0.691-0.418z"></path>
+    </svg>
+</a>
+
+</body>
+</html>
